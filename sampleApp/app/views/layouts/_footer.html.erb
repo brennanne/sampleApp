@@ -1,0 +1,7 @@
+ <footer class="foot">
+     
+     <% if session[:login] == 1 %>
+     <%= link_to 'New Item', new_item_path, :class =>"button", :role=>"button" %>
+     <% end %>
+     
+ </footer>

@@ -9,6 +9,7 @@ class UserController < ApplicationController
     
     def logout
         session[:login] = nil
+        session[:cart] = nil
         flash[:notice] = "Thank You, Goodbye"
         redirect_to :controller => :items
         

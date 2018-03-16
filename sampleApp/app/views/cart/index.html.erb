@@ -2,6 +2,11 @@
 <p id="notice"><%= notice %></p>
 
 <div id="itemsContainer">
+    
+    <% if @cart.empty? %>
+    <p>you need to have some products added</p>
+    <% end %>
+    
     <table id="customers">
         
         <% total = 0 %>
@@ -30,11 +35,17 @@
             <% total += quantity * item.price %>
             
         </tr>
+        
+        
         <% end %>
         
         <tr>
             Grand Total: <%= number_to_currency(total, :unit => "€") %>
             
+        </tr>
+        
+         <tr>
+            <a href="/cart/clear" class="button">Empty Cart</a>
         </tr>
         
         

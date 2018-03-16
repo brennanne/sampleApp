@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-  
+  before_action :authenticate_user!
     
   def add
     
@@ -42,6 +42,11 @@ class CartController < ApplicationController
     cart = session[:cart]
     cart.delete id
     
+    redirect_to :action => :index
+  end
+  
+  def clearcart
+    session[:cart] = nil
     redirect_to :action => :index
   end
     
